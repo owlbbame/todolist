@@ -47,9 +47,12 @@ body div{
     max-width: 550px;
     max-height:50px;
     margin:auto;
-    
-    
 }
+
+.askBar{
+    background: linear-gradient( to bottom, black, white );
+}
+
 
 input{
     font-size:1.5rem;
@@ -83,14 +86,14 @@ ul{
     text-align: left;
     min-width: 548px;
     background-color: black;
-    
+   
 }
 
 
-ul div{
+ul li{
     /* margin-right:400px; */
     vertical-align: middle;
-    display:inline-block;
+    display:inline;
     margin-left: 20px;    
     color:white;
     font-size:30px;
@@ -116,11 +119,11 @@ ul button:hover{
 
 .left{
     position:absolute;
-    left:980px;
+    left:1300px;
     top:100px;
 }
 .completed{
     position:absolute;
-    left:980px;
+    left:1300px;
     top:130px;
 }
