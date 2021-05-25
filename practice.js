@@ -11,7 +11,7 @@ let countLeft = 0;
 //항목을 추가하는 함수 add
 function add() {
 
-    let newLi = document.createElement("div");
+    let newLi = document.createElement("li");
     let delBtn = document.createElement("button");
     let newline = document.createElement("br");
 
@@ -46,6 +46,8 @@ function add() {
         countCompleted++;
         countLeft--;
 
+
+
         left.innerText = `해야할 일 : ${countLeft}개`;
         completed.innerText = `완료한 일 : ${countCompleted}개`;
     });
@@ -71,43 +73,3 @@ input.addEventListener('keypress', (e) => {
 window.onload = function () {
     var input = document.querySelector(".input").focus();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let inputBox = document.getElementById('inputBox');
-// let addButton = document.getElementById('addButton');
-// let ToDoList = document.getElementById('ToDoList');
-
-// addButton.addEventListener('click', function () {
-//     var list = document.createElement('li')
-//     list.innerText = inputBox.value;
-//     ToDoList.appendChild(list);
-//     inputBox.value = "";
-//     list.addEventListener('click', function () {
-//         list.style.textDecoration = "line-through";
-//     })
-//     list.addEventListener('dblclick', function () {
-//         ToDoList.removeChild(list);
-//     })
-// })
