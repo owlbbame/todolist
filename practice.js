@@ -1,16 +1,22 @@
 let input = document.querySelector(".input");
 let addBtn = document.querySelector(".addBtn");
 let list = document.querySelector(".list");
-let idNum = 1;
+let left = document.querySelector('.left');
+let completed = document.querySelector('.completed');
+let countCompleted = 0;
+let countLeft = 0;
 
+// let idNum = 1;
 
 //항목을 추가하는 함수 add
 function add() {
-    let newLi = document.createElement("span");
-    let delBtn = document.createElement("button");
 
-    newLi.classList.add(`${idNum}`);
-    delBtn.classList.add(`${idNum++}`);
+    let newLi = document.createElement("div");
+    let delBtn = document.createElement("button");
+    let newline = document.createElement("br");
+
+    // newLi.classList.add(`${idNum}`);
+    // delBtn.classList.add(`${idNum++}`);
 
     // newLi.classList.add('todo');
     // delBtn.classList.add('button');
@@ -19,16 +25,37 @@ function add() {
     newLi.innerText = input.value;
     delBtn.innerText = '❌';
 
-    list.appendChild(newLi);
-    list.appendChild(delBtn);
+    if (input.value != "") {
+        list.appendChild(newLi);
+        list.appendChild(delBtn);
+        list.appendChild(newline);
+        countLeft++;
+    }
+    else {
+        alert("할 일을 입력하세요.");
+    }
 
     input.value = "";
 
-    let newline = document.createElement("div");
-    list.appendChild(newline);
 
+    //항목 삭제
+    delBtn.addEventListener('click', function () {
+        delBtn.remove();
+        newLi.remove();
+        newline.remove();
+        countCompleted++;
+        countLeft--;
+
+        left.innerText = `해야할 일 : ${countLeft}개`;
+        completed.innerText = `완료한 일 : ${countCompleted}개`;
+    });
+
+
+    left.innerText = `해야할 일 : ${countLeft}개`;
+    completed.innerText = `완료한 일 : ${countCompleted}개`;
 
 }
+
 
 // 추가 버튼을 클릭했을 때 항목 추가하는 명령
 addBtn.addEventListener("click", add);
@@ -40,28 +67,10 @@ input.addEventListener('keypress', (e) => {
     }
 });
 
-//X 버튼을 눌렀을 때 deletelist 함수 호출
 
-
-let deleteBtn = document.querySelector(".1")
-
-deleteBtn.addEventListener("click", deleteList);
-
-function deleteList() {
-    // var deleteBtn = document.querySelector(".1");
-    deleteBtn.parentNode.removeChild(deleteBtn);
-
+window.onload = function () {
+    var input = document.querySelector(".input").focus();
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
